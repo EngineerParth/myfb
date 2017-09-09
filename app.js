@@ -1,10 +1,13 @@
 $(function(){
-    hidePostsRow();    
+    initialize();    
     getFBInfo();
 });
 
-var myFBAccessToken = 'EAACEdEose0cBAEGKBp7GdmdEzzwCEnlCSkeIHwgiVlnElE4rgQMWdAtFNYFR43Y3nQcpKoJAGszNkxstYXw18QtrekvvgGKTXCpfmI7Kzx8RGznSBPc2NiNimODcuxYHi7YLcgK2vEB13KZBJovH7FUVbliUFZBfbohlfmJ11EKIZAVRlCRbuPJWFZAppdM1X7JFsLlCgAZDZD';
+var myFBAccessToken  = 'EAACEdEose0cBAHordPvU6SFhyopprr136tnPbZCTAYWkXE0yMP4ugBsL6TCbG9GZBwINFbMp1JCNTsdRTsWpEZBFpDdQZAkqVZBIE6tdeJzlAB0KvhQK4MbPxn8rBJUAlZBqTT83NWGZB8gMFECAqywcZAqaxT3ZCDTbxc09AQgoP6hzDfiZBJZB1QZBv7iuIULKHmOPNvZCgnRspswZDZD';
+var errorRowHidden;
 var postsRowHidden; // variable to store state of visibility of postsRow
+var errorMessage = "User token invalid!"
+
 // to get the data of a user using graph API
 function getFBInfo(){
     $.ajax('https://graph.facebook.com/me?access_token='+myFBAccessToken,
@@ -28,7 +31,7 @@ function getFBInfo(){
                     // This has to be written here because it accesses the resposne object
                     $("#feedBtn").on("click", function(){
                         // Display feed and hide profile
-                        $("#profileRow").hide();
+                        //$("#profileRow").hide();
                         populatePosts(response.posts.data);
                     });
                     $("#profileBtn").on("click", function(){
@@ -39,8 +42,13 @@ function getFBInfo(){
                 
                 },
                 error: function(err){
-                        alert("Error:"+err.message); 
-                        //$(".container").hide();
+                    
+                    alert(err.status + ": " + err.statusText + " Unable to access data." + errorMessage); 
+                    $("#errorRow").show();
+                    $("#errorMessage").text("Invalid token!");
+                    
+                    errorRowHidden = false;
+                    
                 }
             }
         );
@@ -57,13 +65,17 @@ function populatePosts(data){
         for(var i=0;i<data.length;i++){
             // Currently adding only message and picture, will add more info after this works successfully
             posts.append($('<li>').append($('<span>').append(data[i].message))
-            .append($('<img class="img-responsive">',{'src': data[i].full_picture}))); // The souce of img tag is not setting
+            .append($('<img>',{'src': data[i].full_picture, 
+                                'width':'50%', 'height':'50%',
+                                'class':'img-responsive'}))); // The souce of img tag is not setting
         }
     }
 }
 
 // Configure the DOM elements for initial display
-function hidePostsRow(){
+function initialize(){
     $("#postsRow").hide();
+    $("#errorRow").hide();
     postsRowHidden = true;
+    errorRowHidden = true;
 }
