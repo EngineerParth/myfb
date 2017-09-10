@@ -26,6 +26,7 @@ function getFBInfo(){
                     $('#birthday').text(response.birthday);
                     $('#profilePic').attr('src', response.picture.data.url);
                     $('#education').text(response.education[0].school.name);
+                    populatePosts(response.posts.data, response.picture);
 
                     // This has to be written here because it accesses the resposne object
                     $("#feedBtn").on("click", function(){
@@ -38,8 +39,8 @@ function getFBInfo(){
                     $("#profileBtn").on("click", function(){
                         // display profile and hide the posts
                         $("#profileRow").show();
-                        $("#postsRow").hide();
-                        postsRowHidden = true;
+                        // $("#postsRow").hide();
+                        // postsRowHidden = true;
                     });   
                 
                 },
@@ -77,8 +78,8 @@ function populatePosts(data, profileIcon){
 
 // Configure the DOM elements for initial display
 function initialize(){
-    $("#postsRow").hide();
+    //$("#postsRow").hide();
     $("#errorRow").hide();
-    postsRowHidden = true;
+    //postsRowHidden = true;
     errorRowHidden = true;
 }
