@@ -3,7 +3,7 @@ $(function(){
     getFBInfo();
 });
 
-var myFBAccessToken  = 'EAACEdEose0cBAARyWL0YnWg6qVppR4OL47hZCU61aK1fiGsh2sl7LScEL3ZAOyHqd7oebQljZC1ZAHkbHUdX5oKUWVLF31jMfR5YA7af6Y8xXg9zVI2cnZA6yqLfeKFwl7pRom5gkd7WZAZCvQCCzL4XTnJdyDyyKB5T7ROZAgdoK6Gv26hdXQrF6QflYvpyW2eZAfTZAIhTL6HAZDZD';
+var myFBAccessToken  = 'EAACEdEose0cBAKd3x3hq3Pg1IvvTcGlzuR1WpapSzuyXhCBcLdgB2pbY4NmsfxIyCDPAYkFmapTlmTHiIzCoppbZAeLBzZBZC2kFMBXHWyVFa5YvqQ7OWbZBrGWsWyZCZAhThDI4vUG9jnCQIh85txnOjANBOlKvMc483yhT7EJMlWg04KhMqXeC83WZCIW1LZBJB8WW4Cq84AZDZD';
 var errorRowHidden; // variable to store state of visibility of error row
 var postsRowHidden; // variable to store state of visibility of postsRow
 var errorMessage = "User access token invalid!"
