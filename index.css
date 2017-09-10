@@ -1,12 +1,12 @@
 body{
     cursor: pointer;
     margin: 0 auto;
-    font-size: 18px;
+    font-size: 1.5em;
     /* font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif; */
     font-family: 'Montserrat', sans-serif;
-  }
+}
 
-  .card {
+.card {
     background-color: #ffffff;
     border-radius: 2px;
     box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.06), 0 0 3px rgba(0, 0, 0, 0.18), 0 1px 3px rgba(0, 0, 0, 0.18);
@@ -18,14 +18,15 @@ body{
     margin-bottom: 10px;
     transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
-  }
+}
 
-  .card-inner {
+.card-inner {
     margin: 10px 10px;
     min-width: 0;
     position: relative;
-  }
-  .card-header .card-inner {
+}
+
+.card-header .card-inner {
     -webkit-flex: 1;
         -ms-flex: 1;
             flex: 1;
@@ -33,48 +34,46 @@ body{
     line-height: 24px;
     margin-top: 16px;
     margin-bottom: 16px;
-  }
+}
 
-  .no-flexbox .card-header-side + .card-inner, .no-flexbox .tile-side + .card-inner {
+.no-flexbox .card-header-side + .card-inner, .no-flexbox .tile-side + .card-inner {
     overflow: hidden;
-  }
+}
 
-  .card-main {
+.card-main {
     -webkit-flex: 1;
         -ms-flex: 1;
             flex: 1;
     min-width: 0;
-  }
+}
 
-  .border{
+.border{
     border: 1px solid #cccccc;
-  }
+}
 
-  .backcolor1{
+.backcolor1{
     background-color: #FFCDD2;
-  }
+}
 
-  .backcolor2{
+.backcolor2{
     background-color: #B3E5FC;
-  }
+}
 
-  .backcolor3{
+.backcolor3{
     background-color: #C8E6C9;
-  }
-  .backcolor4{
+}
+.backcolor4{
     background-color: #FFCA28;
-  }
+}
 
-  .stack{
+.stack{
     display: table;
     column-width: 100%;
+}
 
-  }
-
-  .parentbox {
+.parentbox {
     min-height: 150px;
-    height: 100%;         /* remove the gap between inline(-block) elements */
-    
+    height: 100%;         /* remove the gap between inline(-block) elements */    
 }
 
 .parentbox:before {      /* create a full-height inline block pseudo-element */
@@ -95,6 +94,14 @@ body{
     padding: 0px !important;
 }
 
+#errorMessage{
+    text-align: center;
+}
+
+.p-4{
+    padding-top: 2em;
+    padding-bottom: 2em;
+}
 /* #profilePic{
     max-width: 150px !important;
     max-height: 150px !important;
